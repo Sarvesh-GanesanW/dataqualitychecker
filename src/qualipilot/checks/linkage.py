@@ -21,9 +21,7 @@ class LinkageCheck(Check):
 
     name = "linkage"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         link_cfg = ctx.config.linkage
         if link_cfg is None:
             return "ok", {"skipped": True}

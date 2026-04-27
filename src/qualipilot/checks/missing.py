@@ -16,9 +16,7 @@ from qualipilot.models.results import Severity
 class MissingValuesCheck(Check):
     name = "missing_values"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         nulls = ctx.engine.null_counts()
         total_rows = ctx.engine.row_count() or 1
         total_nulls = sum(int(c) for c in nulls.values())

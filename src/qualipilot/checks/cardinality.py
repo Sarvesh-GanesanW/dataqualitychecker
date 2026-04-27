@@ -16,9 +16,7 @@ from qualipilot.models.results import Severity
 class CardinalityCheck(Check):
     name = "cardinality"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         total_rows = ctx.engine.row_count() or 1
         report: list[dict[str, Any]] = []
         any_constant = False

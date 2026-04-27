@@ -17,9 +17,7 @@ from qualipilot.models.results import Severity
 class OutliersCheck(Check):
     name = "outliers"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         numeric = ctx.engine.numeric_columns()
         if not numeric:
             return "ok", {"per_column": []}

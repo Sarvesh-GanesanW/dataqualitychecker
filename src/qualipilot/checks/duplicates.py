@@ -15,9 +15,7 @@ from qualipilot.models.results import Severity
 class DuplicatesCheck(Check):
     name = "duplicates"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         subset = ctx.config.duplicate_subset
         total = ctx.engine.duplicate_count(subset=subset)
         sample = ctx.engine.sample_duplicates(

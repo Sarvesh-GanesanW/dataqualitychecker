@@ -17,9 +17,7 @@ from qualipilot.models.results import Severity
 class FreshnessCheck(Check):
     name = "freshness"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         cols = ctx.config.freshness_columns or ctx.engine.datetime_columns()
         if not cols:
             return "ok", {"per_column": []}

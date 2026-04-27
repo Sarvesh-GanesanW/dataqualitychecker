@@ -15,9 +15,7 @@ from qualipilot.models.results import Severity
 class RangesCheck(Check):
     name = "ranges"
 
-    def _execute(
-        self, ctx: CheckContext
-    ) -> tuple[Severity, dict[str, Any]]:
+    def _execute(self, ctx: CheckContext) -> tuple[Severity, dict[str, Any]]:
         ranges = ctx.config.column_ranges
         if not ranges:
             return "ok", {"per_column": []}
