@@ -19,6 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - `LICENSE` now uses ASCII quotes; some packaging tools mis-detect the
   Unicode smart quotes the previous file shipped with.
+- CI test job now installs `linking` and `duckdb` extras; previously
+  `tests/test_linking.py` imported `rapidfuzz` unconditionally and the
+  whole matrix red-failed on a `ModuleNotFoundError`.
 
 ## [2.0.0] — 2026-04-27
 
