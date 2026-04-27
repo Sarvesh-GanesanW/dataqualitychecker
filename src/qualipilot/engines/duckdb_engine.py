@@ -285,7 +285,7 @@ class DuckDBEngine(Engine):
         result = cursor.fetchone()
         if result is None:
             raise RuntimeError(f"duckdb returned no row for: {sql!r}")
-        return result
+        return cast(tuple[Any, ...], result)
 
     def _scalar(self, sql: str, params: list[Any] | None = None) -> Any:
         return self._row(sql, params)[0]
